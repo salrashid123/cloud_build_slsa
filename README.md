@@ -14,13 +14,13 @@ source ->
                signed SLSA statement
 ```
 
+https://github.com/salrashid123/cloud_build_slsa/runs/31290458350
 
 ### Setup
 
 You must first configure a git repo to use for this test which has a connection to GCP cloud build:
 
 see [Create and manage build triggers](https://cloud.google.com/build/docs/automating-builds/github/connect-repo-github?generation=2nd-gen)
-
 
 ```bash
 export PROJECT_ID=`gcloud config get-value core/project`
@@ -37,12 +37,29 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 gcloud builds connections create github conn1 --region=us-central1
 ```
 
+Create a connection
+
+![images/connection.png](images/connection.png)
+
+Create a Trigger
+
+![images/trigger.png](images/trigger.png)
+
+
+### Build and Push
+
+```bash
+git add -A
+git commit -m "add" 
+
+git push
+```
+
 
 ```bash
 go install github.com/slsa-framework/slsa-verifier/v2/cli/slsa-verifier@latest
 
-export IMAGE=us-central1-docker.pkg.dev/srashid-test2/repo1/test@sha256:ad0f88043f0e8a22aa52000e324523f496b5377ea2690f7d3f86a454997efa45
-
+export IMAGE="us-central1-docker.pkg.dev/srashid-test2/repo1/test@sha256:91b2dd50d3544bd09c6d51e76ecca84eb0a6b95467b0827e8a68b97e922429d1"
 export BUILDER_ID="https://cloudbuild.googleapis.com/GoogleHostedWorker"
 export SOURCE="gs://srashid-test2_cloudbuild/source/1728138804.200539-7c3518f252d54daaa666badfb86d85ab.tgz#1728138804875155"
 

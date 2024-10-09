@@ -27,7 +27,7 @@ func main() {
 		Handler: router,
 	}
 	http2.ConfigureServer(server, &http2.Server{})
-	fmt.Println("Starting Server..")
+	fmt.Println("Starting Server...")
 	log.Fatal(server.ListenAndServe())
 
 }

@@ -32,3 +32,4 @@ images:
 
 options:
   machineType: 'E2_HIGHCPU_32'
+  requestedVerifyOption: VERIFIED
