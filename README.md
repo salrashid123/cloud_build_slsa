@@ -19,7 +19,7 @@ source ->
 
 You must first configure a git repo to use for this test which has a connection to GCP cloud build:
 
-see [Create and manage build triggers]()https://cloud.google.com/build/docs/automating-builds/create-manage-triggers)
+see [Create and manage build triggers](https://cloud.google.com/build/docs/automating-builds/github/connect-repo-github?generation=2nd-gen)
 
 
 ```bash

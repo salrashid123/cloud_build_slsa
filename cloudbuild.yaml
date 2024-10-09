@@ -31,4 +31,4 @@ images:
   - us-central1-docker.pkg.dev/$PROJECT_ID/repo1/test:server
 
 options:
-  machineType: 'N1_HIGHCPU_32'
+  machineType: 'E2_HIGHCPU_32'
