@@ -25,9 +25,6 @@ export PROJECT_ID=`gcloud config get-value core/project`
 export PROJECT_NUMBER=`gcloud projects describe $PROJECT_ID --format='value(projectNumber)'`
 export CLOUD_BUILD_SERVICE_AGENT="service-$PROJECT_NUMBER@gcp-sa-cloudbuild.iam.gserviceaccount.com"
 
-gcloud source repos create cloud_build_slsa
-gcloud source repos clone cloud_build_slsa
-
 gcloud projects add-iam-policy-binding $PROJECT_ID \
   --member="serviceAccount:$CLOUD_BUILD_SERVICE_AGENT" \
   --role="roles/secretmanager.admin"
